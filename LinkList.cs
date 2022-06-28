@@ -1,47 +1,68 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace LinkListU
+namespace LinkedList_Day_14
 {
-    
-        public class LinkList
+    public class LinkedList<T>
+    {
+        public Node<T> head;
+        public Node<T> tail;
+
+        public void add(T data)
         {
-            internal Node head;
-
-
-            internal void Add(int data)
+            Node<T> addNode = new Node<T>(data);
+            if (this.head == null)
             {
-                Node node = new Node(data);
-                if(this.head == null)
-                {
-                    this.head = node;
-                }
-                else
-                {
-                    Node temp = head;
-                    while(temp.next != null)
-                    {
-                        temp = temp.next;
-                    }
-                    temp.next = node;
-                }
-                Console.WriteLine("{0} interted into linked list", node.data);
-
+                this.head = addNode;
             }
-
-            internal void Display()
+            else
             {
-                Node temp = this.head;
-                if(temp == null)
+                Node<T> temp = head;
+                while (temp.next != null)
                 {
-                    Console.WriteLine("Linklist is empty");
-                }
-                while(temp != null)
-                {
-                    Console.WriteLine(temp.data+"");
                     temp = temp.next;
                 }
+                temp.next = addNode;
+            }
+            Console.WriteLine("{0} insert into Linked list", addNode.data);
+        }
+
+
+        public void append(T data)
+        {
+            Node<T> appendNode = new Node<T>(data);
+            if (head == null)
+            {
+                head = appendNode;
+                tail = appendNode;
+            }
+            else
+            {
+                tail.next = appendNode;
+                tail = tail.next;
             }
         }
+
+        public void show()
+        {
+            Node<T> temp = head;
+            if (temp == null)
+            {
+                Console.WriteLine("Linked list is empty");
+            }
+            else
+            {
+                while (temp != null)
+                {
+                    Console.WriteLine(temp.data + " ");
+                    temp = temp.next;
+                }
+                Console.WriteLine();
+            }
+
+        }
     }
+}
