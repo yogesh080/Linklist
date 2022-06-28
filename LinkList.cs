@@ -44,6 +44,19 @@ namespace LinkedList_Day_14
             }
         }
 
+        public void RemoveFirst(T data)
+        {
+            Node<T> removeNode = new Node<T>(data);
+
+            if(this.head == null)
+            {
+                return;
+            }
+            this.head = this.head.next;
+            return ;
+        }
+        
+
         public void InsertBetween(T first, T second, T middle)
         {
             Node<T> newNode = new Node<T>(middle);
