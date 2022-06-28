@@ -29,8 +29,6 @@ namespace LinkedList_Day_14
             }
             Console.WriteLine("{0} insert into Linked list", addNode.data);
         }
-
-
         public void append(T data)
         {
             Node<T> appendNode = new Node<T>(data);
@@ -45,6 +43,27 @@ namespace LinkedList_Day_14
                 tail = tail.next;
             }
         }
+
+        public void InsertBetween(T first, T second, T middle)
+        {
+            Node<T> newNode = new Node<T>(middle);
+            Node<T> temp = head;
+            while (temp.next != null)
+            {
+                if ((temp.data.Equals(first) && temp.next.data.Equals(second)) || (temp.data.Equals(second) && temp.next.data.Equals(first)))
+                {
+                    Node<T> after = temp.next;
+                    temp.next = newNode;
+                    temp.next.next = after;
+                    break;
+
+                }
+                temp = temp.next;
+            }
+
+        }
+        
+
 
         public void show()
         {

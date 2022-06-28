@@ -15,13 +15,17 @@
             linkedList.show();
 
             //create Linked List by appending 30 and 56 to 70
-            LinkedList<int> linkedList2 = new LinkedList<int>();
+            //LinkedList<int> linkedList2 = new LinkedList<int>();
 
-            linkedList2.append(56);
-            linkedList2.append(30);
-            linkedList2.append(70);
+            //linkedList2.append(56);
+            //linkedList2.append(30);
+            //linkedList2.append(70);
 
-            linkedList2.show();
+            //linkedList2.show();
+
+            //
+            linkedList.InsertBetween(56,30,70);
+            linkedList.show();
         }
     }
 }
